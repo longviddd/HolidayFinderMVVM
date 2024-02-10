@@ -55,6 +55,12 @@
 		FD51D8AB2B6EEC5C00C2B251 /* HolidayFinder */ = {
 			isa = PBXGroup;
 			children = (
+				FD51D8C92B78120000C2B251 /* Resources */,
+				FD51D8C82B7811F800C2B251 /* Helpers */,
+				FD51D8C72B7811EC00C2B251 /* Services */,
+				FD51D8C62B7811E300C2B251 /* ViewModels */,
+				FD51D8C02B6EECCD00C2B251 /* Views */,
+				FD51D8BF2B6EECA600C2B251 /* Models */,
 				FD51D8AC2B6EEC5C00C2B251 /* HolidayFinderApp.swift */,
 				FD51D8AE2B6EEC5C00C2B251 /* ContentView.swift */,
 				FD51D8B02B6EEC5D00C2B251 /* Assets.xcassets */,
@@ -71,6 +77,48 @@
 				FD51D8B32B6EEC5D00C2B251 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FD51D8BF2B6EECA600C2B251 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FD51D8C02B6EECCD00C2B251 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FD51D8C62B7811E300C2B251 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FD51D8C72B7811EC00C2B251 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FD51D8C82B7811F800C2B251 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FD51D8C92B78120000C2B251 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
