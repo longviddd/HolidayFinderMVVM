@@ -13,6 +13,10 @@
 		FD51D8B42B6EEC5D00C2B251 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD51D8B32B6EEC5D00C2B251 /* Preview Assets.xcassets */; };
 		FD51D8B62B6EEC5D00C2B251 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51D8B52B6EEC5D00C2B251 /* Persistence.swift */; };
 		FD51D8B92B6EEC5D00C2B251 /* HolidayFinder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD51D8B72B6EEC5D00C2B251 /* HolidayFinder.xcdatamodeld */; };
+		FD51D8DC2B78489600C2B251 /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51D8DB2B78489600C2B251 /* Airport.swift */; };
+		FD51D8DE2B7848E900C2B251 /* AirportSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51D8DD2B7848E900C2B251 /* AirportSelectionViewModel.swift */; };
+		FD51D8E02B78494500C2B251 /* AirportSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51D8DF2B78494500C2B251 /* AirportSelectionView.swift */; };
+		FD51D8E22B795CB600C2B251 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51D8E12B795CB600C2B251 /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		FD51D8B32B6EEC5D00C2B251 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FD51D8B52B6EEC5D00C2B251 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		FD51D8B82B6EEC5D00C2B251 /* HolidayFinder.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HolidayFinder.xcdatamodel; sourceTree = "<group>"; };
+		FD51D8DB2B78489600C2B251 /* Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airport.swift; sourceTree = "<group>"; };
+		FD51D8DD2B7848E900C2B251 /* AirportSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AirportSelectionViewModel.swift; path = HolidayFinder/Models/AirportSelectionViewModel.swift; sourceTree = SOURCE_ROOT; };
+		FD51D8DF2B78494500C2B251 /* AirportSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AirportSelectionView.swift; path = HolidayFinder/Models/AirportSelectionView.swift; sourceTree = SOURCE_ROOT; };
+		FD51D8E12B795CB600C2B251 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = HolidayFinder/Models/NetworkService.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +90,7 @@
 		FD51D8BF2B6EECA600C2B251 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FD51D8DB2B78489600C2B251 /* Airport.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -89,6 +98,7 @@
 		FD51D8C02B6EECCD00C2B251 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD51D8DF2B78494500C2B251 /* AirportSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -96,6 +106,7 @@
 		FD51D8C62B7811E300C2B251 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FD51D8DD2B7848E900C2B251 /* AirportSelectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -103,6 +114,7 @@
 		FD51D8C72B7811EC00C2B251 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FD51D8E12B795CB600C2B251 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -191,10 +203,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD51D8DC2B78489600C2B251 /* Airport.swift in Sources */,
 				FD51D8B92B6EEC5D00C2B251 /* HolidayFinder.xcdatamodeld in Sources */,
+				FD51D8E22B795CB600C2B251 /* NetworkService.swift in Sources */,
 				FD51D8B62B6EEC5D00C2B251 /* Persistence.swift in Sources */,
 				FD51D8AF2B6EEC5C00C2B251 /* ContentView.swift in Sources */,
 				FD51D8AD2B6EEC5C00C2B251 /* HolidayFinderApp.swift in Sources */,
+				FD51D8DE2B7848E900C2B251 /* AirportSelectionViewModel.swift in Sources */,
+				FD51D8E02B78494500C2B251 /* AirportSelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
