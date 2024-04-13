@@ -1,0 +1,7 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -scheme HolidayFinderTests -project ./HolidayFinder.xcodeproj -derivedDataPath "~/Library/Developer/Xcode/DerivedData" -destination "platform=iOS Simulator,id=BCA38EE6-6769-4BC5-A95D-332F327FACB1" -enableCodeCoverage YES build test
+
+User defaults from command line:
+    IDEDerivedDataPathOverride = /Users/long/Library/Developer/Xcode/DerivedData
+    IDEPackageSupportUseBuiltinSCM = YES
+

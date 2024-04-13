@@ -14,14 +14,15 @@ class AirportSelectionViewModel: ObservableObject {
     @Published var selectedAirport: Airport?
     @Published var isLoading = false
     private var cancellables = Set<AnyCancellable>()
+    private let networkService: NetworkService
 
-    init() {
-        fetchAirports()
-    }
-
+    init(networkService: NetworkService = NetworkService.shared) {
+         self.networkService = networkService
+         fetchAirports()
+     }
     func fetchAirports() {
-        self.isLoading = true // Start loading
-        NetworkService.shared.fetchAirports { [weak self] fetchedAirports in
+        self.isLoading = true
+        networkService.fetchAirports { [weak self] fetchedAirports in
             DispatchQueue.main.async {
                 self?.isLoading = false // Stop loading
                 guard let airports = fetchedAirports else { return }
@@ -32,14 +33,16 @@ class AirportSelectionViewModel: ObservableObject {
     }
 
     func saveSelectedAirport(selectedAirport: Airport?) {
-        if let selectedAirport = selectedAirport {
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(selectedAirport), forKey: "selectedAirport")
+        if let encoded = try? JSONEncoder().encode(selectedAirport) {
+            UserDefaults.standard.set(encoded, forKey: "selectedAirport")
         }
+
+
     }
 
     func loadSelectedAirport() {
         if let data = UserDefaults.standard.value(forKey:"selectedAirport") as? Data {
-            selectedAirport = try? PropertyListDecoder().decode(Airport.self, from: data)
+            selectedAirport = try? JSONDecoder().decode(Airport.self, from: data)
         }
     }
     

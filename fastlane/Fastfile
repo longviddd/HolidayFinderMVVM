@@ -1,0 +1,22 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Runs unit tests"
+  lane :unit_testing do
+    scan(
+scheme: "HolidayFinder",
+      project: "./HolidayFinder.xcodeproj",
+      device: "iPhone 14 Pro",
+      output_directory: "fastlane/unit_test_output",
+      code_coverage: true,
+      result_bundle: true
+    )
+
+    xcov(
+	scheme: "HolidayFinder",
+      is_swift_package: true,
+      output_directory: "fastlane/xcov_output",
+      ignore_file_path: ".xcovignore" 
+    )
+  end
+end
