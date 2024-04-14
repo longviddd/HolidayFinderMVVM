@@ -15,13 +15,11 @@ class MyVacationsViewModel: ObservableObject {
         return formatter
     }()
     
-    // Add a new initializer that accepts an array of VacationDetails
     init(vacations: [VacationDetails] = []) {
         self.vacations = vacations
     }
 
     func loadVacations() {
-        // Only load vacations from UserDefaults if the vacations array is empty
         if vacations.isEmpty {
             if let data = UserDefaults.standard.data(forKey: "vacationList"),
                let vacationList = try? JSONDecoder().decode([VacationDetails].self, from: data) {

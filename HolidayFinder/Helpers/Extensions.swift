@@ -10,7 +10,7 @@ extension String {
     func toDate(withFormat format: String = "yyyy-MM-dd") -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0) // Set time zone to UTC
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         return dateFormatter.date(from: self)
     }
 }
@@ -271,11 +271,9 @@ extension Airport{
         case icao, iata, name, city, state, country, elevation, lat, lon, tz
     }
 
-    // Provide a custom initializer to decode from the Decoder instance
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        // Decode each property, providing a default value if the decode fails
         id = UUID()
         icao = try container.decodeIfPresent(String.self, forKey: .icao) ?? "N/A"
         iata = try container.decodeIfPresent(String.self, forKey: .iata) ?? "N/A"
@@ -313,7 +311,7 @@ extension FlightResponse: Equatable {
     }
 }
 
-// Make Meta struct Equatable
+
 extension Meta: Equatable {
     static func == (lhs: Meta, rhs: Meta) -> Bool {
         return lhs.count == rhs.count &&
@@ -321,14 +319,13 @@ extension Meta: Equatable {
     }
 }
 
-// Make Links struct Equatable
 extension Links: Equatable {
     static func == (lhs: Links, rhs: Links) -> Bool {
         return lhs.`self` == rhs.`self`
     }
 }
 
-// Make FlightOffer struct Equatable
+
 extension FlightOffer: Equatable {
     static func == (lhs: FlightOffer, rhs: FlightOffer) -> Bool {
         return lhs.id == rhs.id &&
@@ -348,7 +345,7 @@ extension FlightOffer: Equatable {
     }
 }
 
-// Make Itinerary struct Equatable
+
 extension Itinerary: Equatable {
     static func == (lhs: Itinerary, rhs: Itinerary) -> Bool {
         return lhs.duration == rhs.duration &&
@@ -356,7 +353,7 @@ extension Itinerary: Equatable {
     }
 }
 
-// Make Segment struct Equatable
+
 extension Segment: Equatable {
     static func == (lhs: Segment, rhs: Segment) -> Bool {
         return lhs.departure == rhs.departure &&
@@ -373,7 +370,7 @@ extension Segment: Equatable {
     }
 }
 
-// Make FlightEndpoint struct Equatable
+
 extension FlightEndpoint: Equatable {
     static func == (lhs: FlightEndpoint, rhs: FlightEndpoint) -> Bool {
         return lhs.iataCode == rhs.iataCode &&
@@ -382,21 +379,21 @@ extension FlightEndpoint: Equatable {
     }
 }
 
-// Make Aircraft struct Equatable
+
 extension Aircraft: Equatable {
     static func == (lhs: Aircraft, rhs: Aircraft) -> Bool {
         return lhs.code == rhs.code
     }
 }
 
-// Make Operating struct Equatable
+
 extension Operating: Equatable {
     static func == (lhs: Operating, rhs: Operating) -> Bool {
         return lhs.carrierCode == rhs.carrierCode
     }
 }
 
-// Make Price struct Equatable
+
 extension Price: Equatable {
     static func == (lhs: Price, rhs: Price) -> Bool {
         return lhs.currency == rhs.currency &&
@@ -408,7 +405,7 @@ extension Price: Equatable {
     }
 }
 
-// Make Fee struct Equatable
+
 extension Fee: Equatable {
     static func == (lhs: Fee, rhs: Fee) -> Bool {
         return lhs.amount == rhs.amount &&
@@ -416,7 +413,7 @@ extension Fee: Equatable {
     }
 }
 
-// Make Dictionaries struct Equatable
+
 extension Dictionaries: Equatable {
     static func == (lhs: Dictionaries, rhs: Dictionaries) -> Bool {
         return lhs.locations == rhs.locations &&
@@ -426,7 +423,6 @@ extension Dictionaries: Equatable {
     }
 }
 
-// Make Location struct Equatable
 extension Location: Equatable {
     static func == (lhs: Location, rhs: Location) -> Bool {
         return lhs.cityCode == rhs.cityCode &&
@@ -434,7 +430,7 @@ extension Location: Equatable {
     }
 }
 
-// Make PricingOptions struct Equatable
+
 extension PricingOptions: Equatable {
     static func == (lhs: PricingOptions, rhs: PricingOptions) -> Bool {
         return lhs.fareType == rhs.fareType &&
@@ -442,7 +438,7 @@ extension PricingOptions: Equatable {
     }
 }
 
-// Make TravelerPricing struct Equatable
+
 extension TravelerPricing: Equatable {
     static func == (lhs: TravelerPricing, rhs: TravelerPricing) -> Bool {
         return lhs.travelerId == rhs.travelerId &&
@@ -453,7 +449,7 @@ extension TravelerPricing: Equatable {
     }
 }
 
-// Make TravelerPrice struct Equatable
+
 extension TravelerPrice: Equatable {
     static func == (lhs: TravelerPrice, rhs: TravelerPrice) -> Bool {
         return lhs.currency == rhs.currency &&
@@ -463,7 +459,7 @@ extension TravelerPrice: Equatable {
     }
 }
 
-// Make Tax struct Equatable
+
 extension Tax: Equatable {
     static func == (lhs: Tax, rhs: Tax) -> Bool {
         return lhs.amount == rhs.amount &&
@@ -471,7 +467,7 @@ extension Tax: Equatable {
     }
 }
 
-// Make FareDetailsBySegment struct Equatable
+
 extension FareDetailsBySegment: Equatable {
     static func == (lhs: FareDetailsBySegment, rhs: FareDetailsBySegment) -> Bool {
         return lhs.segmentId == rhs.segmentId &&
@@ -482,7 +478,7 @@ extension FareDetailsBySegment: Equatable {
     }
 }
 
-// Make IncludedCheckedBags struct Equatable
+
 extension IncludedCheckedBags: Equatable {
     static func == (lhs: IncludedCheckedBags, rhs: IncludedCheckedBags) -> Bool {
         return lhs.quantity == rhs.quantity &&
@@ -491,7 +487,7 @@ extension IncludedCheckedBags: Equatable {
     }
 }
 
-// Make co2Emission struct Equatable
+
 extension co2Emission: Equatable {
     static func == (lhs: co2Emission, rhs: co2Emission) -> Bool {
         return lhs.weight == rhs.weight &&

@@ -15,7 +15,6 @@ struct HolidayListView: View {
 
     var body: some View {
             List(viewModel.holidays) { holiday in
-                // Use a navigation link to provide a tap target that navigates to the detail view
                 NavigationLink(destination: HolidayDetailView(holiday: holiday)) {
                     VStack(alignment: .leading) {
                         Text(holiday.date)
@@ -30,7 +29,6 @@ struct HolidayListView: View {
             }
             .navigationTitle("Holidays")
             .task {
-                // Existing task to fetch holidays
                 viewModel.loadSearchParametersAndFetchHolidays()
             }
         }

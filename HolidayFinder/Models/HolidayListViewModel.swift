@@ -35,8 +35,6 @@ class HolidayListViewModel: ObservableObject {
             }
         }
     }
-
-    // Use this method to load search parameters from UserDefaults and fetch holidays based on those parameters
     func loadSearchParametersAndFetchHolidays() {
         if let searchParameters = UserDefaults.standard.dictionary(forKey: "searchParameters") {
             guard let countryCode = searchParameters["selectedCountry"] as? String,

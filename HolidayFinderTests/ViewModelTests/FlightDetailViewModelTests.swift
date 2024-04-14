@@ -110,7 +110,6 @@ class FlightDetailViewModelTests: XCTestCase {
         let flightDetails = FlightResponsePrice(data: FlightResponsePriceData(type: "flight-offers-pricing", flightOffers: []), dictionaries: nil)
         viewModel.flightDetails = flightDetails
         
-        // Clear UserDefaults before running the test
         UserDefaults.standard.removeObject(forKey: "myFlights")
         
         // When

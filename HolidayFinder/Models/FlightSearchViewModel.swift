@@ -65,12 +65,10 @@ class FlightSearchViewModel: ObservableObject {
                     if let flightResponse = flightResponse {
                         self.flightOffers = flightResponse.data
                         if flightResponse.dictionaries == nil {
-                                                // Empty dictionaries, consider it as no flights found
-                                                self.flights = []
-                                                self.noFlightsFound = true
-                                            }
+                            self.flights = []
+                            self.noFlightsFound = true
+                        }
                         else{
-                            // Flights found
                             self.flights = flightResponse.data.map { flightOffer -> Flight in
                                 let outboundSegments = flightOffer.itineraries[0].segments
                                 let returnSegments = flightOffer.itineraries[1].segments
@@ -92,8 +90,8 @@ class FlightSearchViewModel: ObservableObject {
                                     returnDuration: self.formatDuration(returnDuration!),
                                     price: Double(flightOffer.price.total) ?? 0.0
                                 )
-                        }
-
+                            }
+                            
                         }
                     } else {
                         // No flights found
@@ -147,10 +145,10 @@ class FlightSearchViewModel: ObservableObject {
             let returnDestinationAirport = returnSegments[returnSegments.count - 1].arrival.iataCode
             
             return flight.outboundOriginAirport == outboundOriginAirport &&
-                flight.outboundDestinationAirport == outboundDestinationAirport &&
-                flight.returnOriginAirport == returnOriginAirport &&
-                flight.returnDestinationAirport == returnDestinationAirport &&
-                flight.price == Double(flightOffer.price.total) ?? 0.0
+            flight.outboundDestinationAirport == outboundDestinationAirport &&
+            flight.returnOriginAirport == returnOriginAirport &&
+            flight.returnDestinationAirport == returnDestinationAirport &&
+            flight.price == Double(flightOffer.price.total) ?? 0.0
         }
     }
     internal func convertFlightOffersToFlights(_ flightOffers: [FlightOffer]) -> [Flight] {

@@ -35,7 +35,6 @@ class AddHolidayModalViewModel: ObservableObject {
         }
         self.startDate = initialStartDate ?? Date()
 
-        // Set the end date to one day after the start date
         if let initialStartDate = initialStartDate {
             self.endDate = Calendar.current.date(byAdding: .day, value: 1, to: initialStartDate) ?? Date()
         } else {

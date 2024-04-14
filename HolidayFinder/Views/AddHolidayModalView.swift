@@ -20,7 +20,6 @@ struct AddHolidayModalView: View {
     var body: some View {
         NavigationView {
             if viewModel.isLoading {
-                // Display a progress view or an activity indicator
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle())
                     .navigationTitle("Select Airport")
@@ -52,7 +51,6 @@ struct AddHolidayModalView: View {
                         
                     }
                     
-                    // Step for date selection
                     if viewModel.currentStep == 3 {
                         Section(header: Text("Departure Date")) {
                             DatePicker("Select Departure Date", selection: $viewModel.startDate, displayedComponents: .date)

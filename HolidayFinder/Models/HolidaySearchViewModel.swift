@@ -80,11 +80,9 @@ class HolidaySearchViewModel: ObservableObject {
 
     func submitSearch() {
         guard isYearValid else { return }
-        // Store search parameters in UserDefaults
         let searchParameters = ["selectedCountry": vacationLocation , "selectedYear": yearSearch, "upcomingCurrentYearOnly": upcomingCurrentYearOnly] as [String : Any]
         UserDefaults.standard.set(searchParameters, forKey: "searchParameters")
         print("Submitting search for location: \(vacationLocation )")
-        // Trigger navigation
         shouldNavigate = true
     }
 

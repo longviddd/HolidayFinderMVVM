@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct MainTabView: View {
-    // If needed, you can introduce @State or @EnvironmentObject variables here for app-wide state management.
+  
 
     var body: some View {
         TabView {
             NavigationView {
-                HolidaySearchView() // Your existing Holiday Search View
+                HolidaySearchView()
             }
             .tabItem {
                 Image(systemName: "magnifyingglass")
@@ -29,7 +29,6 @@ struct MainTabView: View {
                 Text("Flights")
             }
         }
-        // Modify the TabView's appearance here if needed.
     }
 }
 

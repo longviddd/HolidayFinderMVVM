@@ -22,15 +22,12 @@ class MyFlightsViewModelTests: XCTestCase {
     }
     
     func testLoadSavedFlights() {
-        // Given
         let savedFlight = FlightResponsePrice(data: FlightResponsePriceData(type: "flight-offer", flightOffers: []), dictionaries: nil)
         let savedFlightsData = try? JSONEncoder().encode([savedFlight])
         UserDefaults.standard.set(savedFlightsData, forKey: "myFlights")
         
-        // When
         viewModel.loadSavedFlights()
         
-        // Then
         XCTAssertFalse(viewModel.savedFlights.isEmpty)
         XCTAssertEqual(viewModel.savedFlights.count, 1)
         XCTAssertEqual(viewModel.savedFlights[0].data.type, savedFlight.data.type)
@@ -42,23 +39,18 @@ class MyFlightsViewModelTests: XCTestCase {
         let savedFlight2 = FlightResponsePrice(data: FlightResponsePriceData(type: "flight-offer", flightOffers: []), dictionaries: nil)
         viewModel.savedFlights = [savedFlight1, savedFlight2]
         
-        // When
         viewModel.deleteFlight(at: 0)
         
-        // Then
         XCTAssertEqual(viewModel.savedFlights.count, 1)
         XCTAssertEqual(viewModel.savedFlights[0].data.type, savedFlight2.data.type)
     }
     
     func testFormatDate() {
-        // Given
         let dateString = "2024-03-16T10:30:00"
         let expectedFormattedDate = "Mar 16, 2024"
         
-        // When
         let formattedDate = viewModel.formatDate(dateString)
         
-        // Then
         XCTAssertEqual(formattedDate, expectedFormattedDate)
     }
 }

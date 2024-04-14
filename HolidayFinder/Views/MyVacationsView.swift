@@ -13,7 +13,6 @@ struct MyVacationsView: View {
     @State private var vacationToDelete: VacationDetails?
     @Environment(\.scenePhase) private var scenePhase
 
-    // Add a new initializer that accepts a MyVacationsViewModel instance
     init(viewModel: MyVacationsViewModel = MyVacationsViewModel()) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }

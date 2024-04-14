@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct HolidayFinderApp: App {
-    // Create the system monitor instance
     private let systemMonitor = SystemMonitor()
     private let ramMonitor = MemoryUsageMonitor()
     
     init() {
-        // Start monitoring CPU usage as soon as the app launches
         systemMonitor.startMonitoring()
         ramMonitor.startMonitoring()
     }
@@ -36,13 +34,13 @@ import Foundation
 class SystemMonitor {
     private var timer: Timer?
     private var combinedUsages: [Float] = []
-    private var maxCPUUsage: Float = 0.0  // Variable to store the maximum CPU usage
+    private var maxCPUUsage: Float = 0.0
     private var startTime: Date?
 
     func startMonitoring() {
-        combinedUsages.removeAll()  // Reset the usage data each time monitoring starts
-        maxCPUUsage = 0.0  // Reset the maximum CPU usage
-        startTime = Date()  // Record the start time for reference
+        combinedUsages.removeAll()
+        maxCPUUsage = 0.0
+        startTime = Date()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fetchCPUUsage), userInfo: nil, repeats: true)
     }
 
@@ -74,7 +72,6 @@ class SystemMonitor {
                 let combinedUsage = userUsage + systemUsage
 
                 combinedUsages.append(combinedUsage)
-                // Update maximum CPU usage if the current usage is higher
                 if combinedUsage > maxCPUUsage {
                     maxCPUUsage = combinedUsage
                 }
@@ -134,7 +131,7 @@ class MemoryUsageMonitor {
         }
 
         if kerr == KERN_SUCCESS {
-            return info.resident_size / 1024 / 1024 // Convert from bytes to megabytes
+            return info.resident_size / 1024 / 1024 
         } else {
             print("Error with task_info(): \(String(describing: strerror(kerr)))")
             return 0

@@ -52,7 +52,7 @@ struct HolidaySearchView: View {
                     viewModel.submitSearch()
                 }
                 .accessibilityIdentifier("Submit")
-                .disabled(!viewModel.isYearValid) // Disable button based on isYearValid
+                .disabled(!viewModel.isYearValid)
                 .padding()
 
                 NavigationLink(destination: HolidayListView(), isActive: $viewModel.shouldNavigate) {
@@ -60,20 +60,20 @@ struct HolidaySearchView: View {
                 }
             }
             .onReceive(viewModel.$vacationLocationsJson) { countries in
-                // Automatically select the first country's countryCode as soon as countries are fetched
+
                 if let firstCountryCode = countries.first?.countryCode {
                     viewModel.vacationLocation = firstCountryCode
                 }
             }
             .padding()
             .onChange(of: viewModel.yearSearch) { newValue in
-                viewModel.validateYearInput(text: newValue) // Trigger validation when yearSearch changes
+                viewModel.validateYearInput(text: newValue)
             }
             .onAppear {
                 showingAirportSelection = viewModel.needsAirportSelection
             }
             .sheet(isPresented: $showingAirportSelection) {
-                // Provide AirportSelectionView with its necessary ViewModel
+
                 AirportSelectionView(viewModel: AirportSelectionViewModel())
             }
         }
